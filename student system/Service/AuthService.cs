@@ -37,7 +37,8 @@ namespace student_system.Service
             return new TokenResponseDto
             {
                 AccessToken = CreateToken(user),
-                RefreshToken = await GenerateAndSaveRefreshTokenAsync(user)
+                RefreshToken = await GenerateAndSaveRefreshTokenAsync(user),
+                Role = user.Role
             };
         }
 
@@ -54,8 +55,11 @@ namespace student_system.Service
 
             user.Username = request.Username;
             user.PasswordHash = hashedPassword;
+            user.Role = "User";
 
             context.Users.Add(user);
+            user.RefreshToken = GenerateRefreshToken();
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
             await context.SaveChangesAsync();
             return user;
         }

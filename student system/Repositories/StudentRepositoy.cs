@@ -16,6 +16,10 @@ namespace student_system.Repositories
             return _context.Students.ToList();
 
         }
+        public Students? GetStudent(int id)
+        {
+            return _context.Students.FirstOrDefault(x => x.Id == id);
+        }
 
         public string AddStudent(StudentDto student)
         {

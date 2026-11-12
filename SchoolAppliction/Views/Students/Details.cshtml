@@ -1,0 +1,61 @@
+﻿@model StudentEntity
+
+<form asp-action="UpdateStudentDetails" method="put">
+    <input asp-for="Id" Hidden />
+    <br />
+    <div class="container border p-3" >
+        <h1 class="text-primary">Delete Student Details</h1>
+
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-2">
+                    <label asp-for="StudentName" class="control-label pt-2" style="font-size:14px;"></label>
+                </div>
+                <div class="col-10 pb-3">
+                    <input asp-for="StudentName" class="control-label pt-2" style="font-size:14px;">
+                    <span asp-validation-for="StudentName" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Class" class="control-label pt-2" style="font-size:14px;"></label>
+                </div>
+                <div class="col-10 pb-3">
+                    <input asp-for="Class" class="control-label pt-2" style="font-size:14px;">
+                    <span asp-validation-for="Class" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Age" class="control-label pt-2" style="font-size:14px;"></label>
+                </div>
+                <div class="col-10 pb-3">
+                    <input asp-for="Age" class="control-label pt-2" style="font-size:14px;">
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Email" class="control-label pt-2" style="font-size:14px;"></label>
+                </div>
+                <div class="col-10 pb-3">
+                    <input asp-for="Email" class="control-label pt-2" style="font-size:14px;">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="DOB" class="control-label pt-2" style="font-size:14px;"></label>
+                </div>
+                <div class="col-10 pb-3">
+                    <input asp-for="DOB" class="control-label pt-2" style="font-size:14px;">
+                    <span asp-validation-for="DOB" class="text-danger"></span>
+                </div>
+
+                <br />
+                <div class="col-5">
+                <a asp-action="index" asp-controller="Students" class="btn btn-primary form-control">Back To List </a>
+                </div>
+                <div class="col-5 offset-2">
+                <input type="submit" value="Submit" class="btn btn-success form-control" />
+                </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

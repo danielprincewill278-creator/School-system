@@ -1,0 +1,46 @@
+﻿@model List<StudentEntity>
+<br/>
+<div class="container p-4 border">
+    <div class="row pb-2">
+        <div class="col">
+            <h1 class="text-primary">Students</h1>
+        </div>
+        <div class="col text-end p1-1">
+            <a asp-controller="Students" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> New Student</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StudentName</th>
+                <th>Class</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.StudentName</td>
+                    <td>@item.Class</td>
+                    <td>@item.Age</td>
+                    <td>@item.Email</td>
+                    <td>@item.DOB</td>
+                    <td>
+                        <a asp-controller="Students" asp-action="Details" asp-route-Id="@item.Id" class="btn btn-outline-success"><i class="bi bi-pen-fill"></i></a>
+                        <a asp-controller="Students" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>
+</div>

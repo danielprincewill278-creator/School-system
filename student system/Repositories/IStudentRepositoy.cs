@@ -6,6 +6,7 @@ namespace student_system.Repositories
     public interface IStudentRepositoy
     {
         List<Students> GetAllStudents();
+        Students? GetStudent(int id);
         string AddStudent(StudentDto student);
         string UpdateStudent( StudentDtoUpdate student);
         string DeleteStudent(int studentId);
